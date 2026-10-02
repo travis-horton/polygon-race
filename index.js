@@ -109,6 +109,8 @@ const renderPolygonRaceInElement = (parentContainerId) => {
 
   let currentStep = 1;
 
+  let rafId = null;
+
   const tick = () => {
     clearScreen(cartesianCtx, canvasConfig);
 
@@ -129,10 +131,17 @@ const renderPolygonRaceInElement = (parentContainerId) => {
       });
     }
 
-    window.requestAnimationFrame(tick);
+    rafId = window.requestAnimationFrame(tick);
   };
 
-  window.requestAnimationFrame(tick);
+  rafId = window.requestAnimationFrame(tick);
+
+  // Stops the animation and takes the demo off the page. Call it when the
+  // page showing the demo closes; otherwise the loop keeps running forever.
+  return function stop() {
+    window.cancelAnimationFrame(rafId);
+    cartesianCtx.canvas.remove();
+  };
 };
 
 export default renderPolygonRaceInElement;
