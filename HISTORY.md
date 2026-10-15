@@ -12,6 +12,9 @@ This is the whole history of the polygon-race demo, newest first, written for so
 
 ## October 2026
 
+**polygon-race #3: the change log catches up on entries it missed** · [PR #3](https://github.com/travis-horton/polygon-race/pull/3) · merged 26.1015.0727 · v1.0.6
+- Behind the scenes: the robot that writes this file after each change now also writes in any earlier finished change it missed, oldest first, with a "recorded late" note when it is more than an hour late. If GitHub won't answer one of its lookups, it skips only that one, records the newest change anyway, and fills the gap on a later run.
+
 **polygon-race #2: the demo stops when you leave its page** · [PR #2](https://github.com/travis-horton/polygon-race/pull/2) · merged 26.1002.1017 · v1.0.5
 - **[Stops when asked](https://github.com/travis-horton/polygon-race/commit/d7efa37)** · merged 26.1002.1017
   Fixed: after you left the demo's page on travish.com, the shapes kept being drawn on every screen refresh out of sight, and each visit added another copy. The demo now hands the website a way to stop it, which ends the animation and removes the drawing area. (The website starts using it in its own change.)
